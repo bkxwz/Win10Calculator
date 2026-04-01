@@ -122,7 +122,7 @@ namespace Win10Calculator
             }
         }
 
-        private void BtnNegate_Click(object sender, EventArgs)
+        private void BtnNegate_Click(object sender, EventArgs e)
         {
             if (txtDisplay.Text != "0")
             {
