@@ -1,0 +1,35 @@
+name: Build Win10Calculator
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Publish (self-contained)
+      run: dotnet publish --configuration Release --runtime win-x64 --self-contained true --output ./publish /p:PublishSingleFile=true /p:EnableCompressionInSingleFile=true
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Win10Calculator
+        path: ./publish/Win10Calculator.exe
+        retention-days: 90
