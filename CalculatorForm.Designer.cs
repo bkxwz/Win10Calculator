@@ -435,6 +435,7 @@ namespace Win10Calculator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(344, 535);
+            this.DoubleBuffered = true;
             this.Controls.Add(this.btnEquals);
             this.Controls.Add(this.btnDecimal);
             this.Controls.Add(this.btn0);
@@ -463,6 +464,7 @@ namespace Win10Calculator
             this.Controls.Add(this.txtDisplay);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "CalculatorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
